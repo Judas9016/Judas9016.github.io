@@ -1,0 +1,202 @@
+---
+import Js from "./icons/Js.astro";
+import Rust from "./icons/Rust1.astro";
+import Astro1 from "./icons/Astro.astro";
+import Ts from "./icons/Ts.astro";
+import Godot from "./icons/Godot.astro";
+import Assembly from "./icons/Assembly.astro";
+import Cp from "./icons/Ca.astro";
+import Cpp from "./icons/C++.astro";
+import Php from "./icons/Php.astro";
+import Css from "./icons/Css.astro";
+import Python from "./icons/Python.astro";
+import Sass from "./icons/Sass.astro";
+import Sql from "./icons/Sql.astro";
+import React from "./icons/React.astro";
+import Vite from "./icons/Vite.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Git from "./icons/Git.astro";
+import Vscode from "./icons/Vscode.astro";
+import Arch from "./icons/Arch.astro";
+import Nvim from "./icons/Nvim.astro";
+import Docker from "./icons/Docker.astro";
+import Lua from "./icons/Lua.astro";
+import Cloudflare from "./icons/Cloudflare.astro";
+import Github from "./icons/Github.astro";
+import pages from "./icons/page.astro";
+import Mongo from "./icons/MongoDB.astro";
+import Mysql from "./icons/MySQL.astro";
+import Vercel from "./icons/Vercel.astro";
+import MariaDB from "./icons/MariaDB.astro";
+
+const skills = [
+    {
+        title: "Languages",
+        icon: "💻",
+        items: [
+            { name: "JavaScript", icon: Js },
+            { name: "TypeScript", icon: Ts },
+            { name: "Rust", icon: Rust },
+            { name: "Godot", icon: Godot },
+            { name: "Assembly", icon: Assembly },
+            { name: "Lua", icon: Lua },
+            { name: "C", icon: Cp },
+            { name: "C++", icon: Cpp },
+            { name: "PHP", icon: Php },
+            { name: "CSS", icon: Css },
+            { name: "Python", icon: Python },
+            { name: "Sass", icon: Sass },
+            { name: "SQL", icon: Sql },
+        ],
+    },
+    {
+        title: "Frameworks & Libraries",
+        icon: "📦",
+        items: [
+            { name: "React", icon: React },
+            { name: "Vite", icon: Vite },
+            { name: "TailwindCSS", icon: Tailwind },
+            { name: "Astro", icon: Astro1 },
+        ],
+    },
+    {
+        title: "Tools",
+        icon: "🛠",
+        items: [
+            { name: "Git", icon: Git },
+            { name: "VSCode", icon: Vscode },
+            { name: "ArchLinux", icon: Arch },
+            { name: "Obsidian", icon: Astro1 },
+            { name: "Vim", icon: Nvim },
+            { name: "Docker", icon: Docker },
+        ],
+    },
+    {
+        title: "Clouds and Providers",
+        icon: "☁️",
+        items: [
+            { name: "Cloudflare", icon: Cloudflare },
+            { name: "Github", icon: Github },
+            { name: "GithubPages", icon: pages },
+            { name: "MariaDB", icon: MariaDB },
+            { name: "MongoDB", icon: Mongo },
+            { name: "MySQL", icon: Mysql },
+            { name: "Vercel", icon: Vercel },
+        ],
+    },
+];
+---
+
+<section class="skills">
+    <h1 class="title">🧠 Skills</h1>
+
+    {
+        skills.map((category) => (
+            <div class="category">
+                <h2>
+                    {category.icon} {category.title}
+                </h2>
+                <div class="grid">
+                    {category.items.map(({ name, icon: Icon }) => (
+                        <div class="skill">
+                            <Icon />
+                            <span>{name}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        ))
+    }
+</section>
+
+<style>
+    .skills {
+        padding: 2rem;
+        font-family: var(--font-test);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        color: #fff;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 3rem;
+        animation: neonEfectt 1.5s infinite alternate;
+    }
+
+    .category {
+        background: rgba(20, 20, 20, 0.6);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        border: 1px solid #444;
+    }
+
+    .category h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        animation: neonEfectt 1.5s infinite alternate;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .skill {
+        background: grey;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.2s ease;
+    }
+
+    .skill:hover {
+        transform: scale(1.05);
+    }
+
+    .skill svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    .skill span {
+        font-size: 15px;
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+        .grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+        .skill {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .skill span {
+            text-align: center;
+            font-size: 15px;
+        }
+    }
+
+    @keyframes neonEfectt {
+        from {
+            text-shadow:
+                0 0 3px #d37090,
+                0 0 6px #d37090;
+        }
+        to {
+            text-shadow:
+                0 0 8px #d37090,
+                0 0 16px #d37090;
+        }
+    }
+</style>

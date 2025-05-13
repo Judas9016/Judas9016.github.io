@@ -1,0 +1,71 @@
+---
+import GithubIcon from "./icons/Github.astro";
+import TwitterIcon from "./icons/x.astro";
+import LinkedinIcon from "./icons/linked.astro";
+
+const socialLinks = [
+    { name: "GitHub", icon: GithubIcon, url: "https://github.com/tuusuario" },
+    {
+        name: "Twitter",
+        icon: TwitterIcon,
+        url: "https://twitter.com/tuusuario",
+    },
+    {
+        name: "LinkedIn",
+        icon: LinkedinIcon,
+        url: "https://linkedin.com/in/tuusuario",
+    },
+];
+---
+
+<section class="contact-section">
+    <h2>📡 Contact</h2>
+    <div class="socials">
+        {
+            socialLinks.map(({ name, icon: Icon, url }) => (
+                <a
+                    href={url}
+                    target="_blank"
+                    class="social-link"
+                    aria-label={name}
+                >
+                    <Icon />
+                    <span>{name}</span>
+                </a>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .contact-section {
+        padding: 2rem;
+        font-family: "Press Start 2P", monospace;
+        color: #fff;
+        text-align: center;
+    }
+
+    .socials {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+        background: #2a2a2a;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .social-link svg {
+        width: 20px;
+        height: 20px;
+    }
+</style>

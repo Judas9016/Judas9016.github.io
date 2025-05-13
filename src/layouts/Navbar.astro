@@ -14,3 +14,33 @@
         </div>
     </nav>
 </header>
+
+<script>
+    let lastScroll = 0;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll) {
+            header.classList.add("hide");
+        } else {
+            header.classList.remove("hide");
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+        const cross = document.querySelector(".cross");
+
+        cross.addEventListener("click", () => {
+            cross.classList.toggle("rotated");
+        });
+        toggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    });
+</script>

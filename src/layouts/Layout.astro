@@ -1,5 +1,6 @@
 ---
 const { title } = Astro.props;
+
 import "../styles/global.css";
 import Navbar from "./Navbar.astro";
 import { ClientRouter } from "astro:transitions";
@@ -37,17 +38,4 @@ import { ClientRouter } from "astro:transitions";
         }
     }
 </style>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const toggle = document.getElementById("menu-toggle");
-        const navLinks = document.getElementById("nav-links");
-        const cross = document.querySelector(".cross");
-
-        cross.addEventListener("click", () => {
-            cross.classList.toggle("rotated");
-        });
-        toggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    });
-</script>
+<script></script>

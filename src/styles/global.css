@@ -28,11 +28,18 @@ body {
     overflow-x: hidden;
 }
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     width: 100%;
     padding-top: 2rem;
     margin-bottom: 4rem;
+    transition: transform 0.3s ease-in-out;
 }
 
+header.hide {
+    transform: translateY(-100%);
+}
 nav {
     display: flex;
     flex-direction: column;

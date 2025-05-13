@@ -1,71 +1,100 @@
 ---
-import GithubIcon from "./icons/Github.astro";
-import TwitterIcon from "./icons/x.astro";
-import LinkedinIcon from "./icons/linked.astro";
-
-const socialLinks = [
-    { name: "GitHub", icon: GithubIcon, url: "https://github.com/tuusuario" },
-    {
-        name: "Twitter",
-        icon: TwitterIcon,
-        url: "https://twitter.com/tuusuario",
-    },
-    {
-        name: "LinkedIn",
-        icon: LinkedinIcon,
-        url: "https://linkedin.com/in/tuusuario",
-    },
-];
+import GitHub from "./icons/Github.astro";
+import LinkedIn from "./icons/linked.astro";
 ---
 
-<section class="contact-section">
-    <h2>📡 Contact</h2>
-    <div class="socials">
-        {
-            socialLinks.map(({ name, icon: Icon, url }) => (
-                <a
-                    href={url}
-                    target="_blank"
-                    class="social-link"
-                    aria-label={name}
-                >
-                    <Icon />
-                    <span>{name}</span>
-                </a>
-            ))
-        }
+<section class="contact">
+    <h2 class="title">Contact</h2>
+    <div class="social-box">
+        <a
+            href="https://github.com/Judas9016"
+            class="social-card"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <GitHub />
+            <span>GitHub</span>
+        </a>
+        <a
+            href="https://www.linkedin.com/in/william-david-rodr%C3%ADguez-859a44314/"
+            class="social-card"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <LinkedIn />
+            <span>LinkedIn</span>
+        </a>
     </div>
 </section>
 
 <style>
-    .contact-section {
-        padding: 2rem;
-        font-family: "Press Start 2P", monospace;
-        color: #fff;
+    .contact {
+        margin-top: 3rem;
         text-align: center;
     }
 
-    .socials {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+    .title {
+        font-family: var(--font-test);
+        color: #fff;
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        animation: neonEfectt 1.5s infinite alternate;
     }
 
-    .social-link {
+    .social-box {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .social-card {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        text-decoration: none;
-        color: inherit;
-        background: #2a2a2a;
-        padding: 0.5rem 1rem;
+        background-color: #fff;
+        border: 1px solid #333;
         border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        color: black;
+        font-family: var(--font-test);
+        font-size: 2.6rem;
+        transition: background-color 0.2s;
     }
 
-    .social-link svg {
+    .social-card:hover {
+        background-color: purple;
+        color: white;
+    }
+
+    .social-card svg {
         width: 20px;
         height: 20px;
+        fill: white;
+    }
+
+    @keyframes neonEfectt {
+        from {
+            text-shadow:
+                0 0 3px #d37090,
+                0 0 6px #d37090;
+        }
+        to {
+            text-shadow:
+                0 0 8px #d37090,
+                0 0 16px #d37090;
+        }
+    }
+    @media (max-width: 600px) {
+        .social-card {
+            flex-direction: column;
+            font-size: 1.5rem;
+        }
+
+        .social-card svg {
+            width: 18px;
+            height: 18px;
+        }
     }
 </style>

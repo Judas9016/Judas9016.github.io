@@ -112,6 +112,7 @@ const skills = [
 
 <style>
     .skills {
+        animation: neonTitle 2s infinite alternate;
         padding: 2rem;
         font-family: var(--font-test);
         display: flex;
@@ -123,20 +124,25 @@ const skills = [
     .title {
         text-align: center;
         font-size: 3rem;
-        animation: neonEfectt 1.5s infinite alternate;
+        color: #ffffff;
+        animation: neonTitle 2s infinite alternate;
     }
 
     .category {
-        background: rgba(20, 20, 20, 0.6);
+        background: rgba(50, 0, 70, 0.3);
         padding: 1.5rem;
         border-radius: 1rem;
-        border: 1px solid #444;
+        border: 1px solid #7a00a8;
+        box-shadow: 0 0 10px #a200ff33;
     }
 
-    .category h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        animation: neonEfectt 1.5s infinite alternate;
+    .category-title {
+        font-size: 1.8rem;
+        color: #cc66ff;
+        text-shadow:
+            0 0 5px #cc66ff,
+            0 0 10px #9900cc;
+        animation: neonText 1.5s ease-in-out infinite alternate;
     }
 
     .grid {
@@ -146,30 +152,35 @@ const skills = [
     }
 
     .skill {
-        background: grey;
-        border: 1px solid #333;
-        border-radius: 8px;
-        padding: 0.75rem;
+        background: rgba(170, 0, 255, 0.2);
+        border: 1px solid #aa00ff;
+        border-radius: 10px;
+        padding: 1rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        transition: transform 0.2s ease;
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
     }
 
     .skill:hover {
         transform: scale(1.05);
+        box-shadow:
+            0 0 10px #d370ff,
+            0 0 20px #d370ff;
     }
 
     .skill svg {
-        width: 20px;
-        height: 20px;
-        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        fill: #fff;
     }
 
     .skill span {
         font-size: 15px;
-        color: #fff;
-        white-space: nowrap;
+        color: #ffffff;
+        text-shadow: 0 0 3px #ff99ff;
     }
 
     @media (max-width: 600px) {
@@ -184,20 +195,31 @@ const skills = [
 
         .skill span {
             text-align: center;
-            font-size: 15px;
+            font-size: 14px;
         }
     }
 
-    @keyframes neonEfectt {
+    @keyframes neonTitle {
         from {
             text-shadow:
-                0 0 3px #d37090,
-                0 0 6px #d37090;
+                0 0 5px #ff00ff,
+                0 0 10px #9900cc;
         }
         to {
             text-shadow:
-                0 0 8px #d37090,
-                0 0 16px #d37090;
+                0 0 15px #ff00ff,
+                0 0 25px #ff00ff;
+        }
+    }
+
+    @keyframes neonText {
+        from {
+            text-shadow: 0 0 4px #cc66ff;
+        }
+        to {
+            text-shadow:
+                0 0 12px #cc66ff,
+                0 0 16px #9900cc;
         }
     }
 </style>

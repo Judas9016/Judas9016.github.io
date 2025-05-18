@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+import GemLoading from "../assets/madoka pixel.gif";
+import { ClientRouter } from "astro:transitions";
+---
+
+<html lang="es">
+    <head>
+        <ClientRouter />
+        <meta charset="UTF-8" />
+        <title>Página no encontrada</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+
+            :root {
+                --font-test: "Pixelify Sans", sans-serif;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background:
+                    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+                    url("https://i.pinimg.com/originals/30/c3/fe/30c3fe6bf9c9830542dde88175ab8712.gif")
+                        no-repeat center center;
+                background-size: cover;
+                color: #fff;
+                font-family: var(--font-test);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+                animation: wipe-in-right 1.2s;
+            }
+
+            h1 {
+                animation: neonEfectt 1.5s infinite alternate;
+                font-size: 4rem;
+                margin-bottom: 1rem;
+                text-shadow: 2px 2px 5px #000;
+            }
+
+            .loader {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            .size-img {
+                width: 500px;
+                max-width: 90vw;
+                height: auto;
+                border: 4px solid #e0b3ff;
+                border-radius: 16px;
+                box-shadow: 0 0 20px #800080;
+            }
+
+            p {
+                margin-top: 2rem;
+                font-size: 1.5rem;
+                max-width: 600px;
+            }
+
+            a.volver {
+                margin-top: 2rem;
+                font-size: 1.1rem;
+                color: #fff;
+                background-color: #6200b3;
+                padding: 0.6rem 1.2rem;
+                border-radius: 8px;
+                text-decoration: none;
+                box-shadow: 0 0 10px #9f5fd7cc;
+                transition: all 0.3s ease;
+            }
+
+            a.volver:hover {
+                background-color: #45006d;
+                box-shadow: 0 0 15px #ffffff55;
+            }
+
+            @keyframes neonEfectt {
+                from {
+                    text-shadow:
+                        0 0 3px #d37090,
+                        0 0 6px #d37090;
+                }
+                to {
+                    text-shadow:
+                        0 0 8px #d37090,
+                        0 0 16px #d37090;
+                }
+            }
+
+            @media (max-width: 858px) {
+                h1 {
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                }
+
+                a.volver {
+                    font-size: 1rem;
+                    padding: 0.5rem 1rem;
+                }
+            }
+            @keyframes wipe-in-right {
+                from {
+                    clip-path: inset(0 100% 0 0);
+                }
+                to {
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+
+            [transition-style="in:wipe:right"] {
+                animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-right both;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>404 - Página no encontrada</h1>
+        <div class="loader">
+            <Image
+                id="loading-progress"
+                class="size-img"
+                src={GemLoading}
+                alt="Loading"
+            />
+        </div>
+        <p>
+            Perdido entre los píxeles del abismo... regresa al portal principal.
+        </p>
+        <a href="/" class="volver">Volver al inicio</a>
+    </body>
+</html>

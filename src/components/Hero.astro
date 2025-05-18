@@ -13,10 +13,11 @@ const randomIndex = Math.floor(Math.random() * imagenes.length);
     <div class="judas-text">
         <h1 class="title">Judas</h1>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            officia iure accusamus obcaecati esse natus ut. Incidunt repellat
-            eveniet eaque! Nisi similique, id vitae repellendus laudantium sed?
-            Ipsam, amet tempore.
+            Hey, how's it going? I'm Judas, a young programmer who's super into
+            technology. I'm always learning, trying to get better at what I do
+            every day. I'm into anime, manga, sports, and I'm always trying to
+            learn more about what I do. You'll usually find me either listening
+            to music or programming.
         </p>
     </div>
     <div class="img-hero">
@@ -99,12 +100,12 @@ const randomIndex = Math.floor(Math.random() * imagenes.length);
         bottom: 20rem;
     }
 
-    @media (max-width: 979px) {
+    @media (max-width: 980px) {
         .scroll-container {
             display: none;
         }
         .judas {
-            margin-top: 0;
+            margin-top: 10rem;
         }
     }
 
@@ -125,14 +126,3 @@ const randomIndex = Math.floor(Math.random() * imagenes.length);
         }
     }
 </style>
-
-<script type="module">
-    const imagenes = JSON.parse("{JSON.stringify(imagenes)}");
-    let index = { randomIndex };
-    const imgElement = document.getElementById("carrusel");
-
-    setInterval(() => {
-        index = (index + 1) % imagenes.length;
-        imgElement.src = imagenes[index];
-    }, 1000);
-</script>

@@ -18,14 +18,16 @@ html {
 
 body {
     background:
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../assets/image.png");
-
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url("https://i.pinimg.com/originals/30/c3/fe/30c3fe6bf9c9830542dde88175ab8712.gif")
+            no-repeat center center;
+    background-size: cover;
     background-color: var(--bg-color);
     height: auto;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    animation: wipe-in-right 1.2s;
 }
 header {
     position: sticky;
@@ -136,6 +138,7 @@ nav {
         align-items: center;
         gap: 2rem;
         display: none;
+        animation: neonEfectt 1.5s infinite alternate;
     }
 
     .nav-links.active {
@@ -151,4 +154,16 @@ nav {
     .container-cross {
         display: none;
     }
+}
+@keyframes wipe-in-right {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+[transition-style="in:wipe:right"] {
+    animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-right both;
 }

@@ -7,7 +7,6 @@
                 src="https://open.spotify.com/embed/track/2vWBUC9djv6BtiGlmKiQaH?utm_source=generator"
                 width="100%"
                 height="152"
-                frameBorder="0"
                 allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
@@ -18,7 +17,6 @@
                 src="https://open.spotify.com/embed/track/0BxE4FqsDD1Ot4YuBXwAPp?utm_source=generator"
                 width="100%"
                 height="152"
-                frameborder="0"
                 allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
@@ -29,7 +27,6 @@
                 src="https://open.spotify.com/embed/track/4QIEsteP8ZRDybShQNuA2J?utm_source=generator"
                 width="100%"
                 height="152"
-                frameborder="0"
                 allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
@@ -40,7 +37,6 @@
                 src="https://open.spotify.com/embed/track/2qpzWc8i7nja6CpvGczkUe?utm_source=generator"
                 width="100%"
                 height="152"
-                frameBorder="0"
                 allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
@@ -51,7 +47,6 @@
                 src="https://open.spotify.com/embed/track/4Fhrx7bvF8MxowMaJqghBk?utm_source=generator"
                 width="100%"
                 height="152"
-                frameBorder="0"
                 allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
@@ -62,7 +57,6 @@
                 src="https://open.spotify.com/embed/track/6CTdEvRD18xnL8qIumOaSU?utm_source=generator"
                 width="100%"
                 height="152"
-                frameBorder="0"
                 allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>
@@ -120,20 +114,23 @@
 
 <script>
     const carousel = document.getElementById("music-carousel");
-    let scrollMusic = 0;
-    const scrollStep = 152;
-    const scrollDelay = 2000;
 
-    setInterval(() => {
-        if (scrollMusic + carousel.clientWidth >= carousel.scrollWidth) {
-            scrollMusic = 0;
-        } else {
-            scrollMusic += scrollStep;
-        }
+    if (carousel) {
+        let scrollMusic = 0;
+        const scrollStep = 152;
+        const scrollDelay = 2000;
 
-        carousel.scrollTo({
-            left: scrollMusic,
-            behavior: "smooth",
-        });
-    }, scrollDelay);
+        setInterval(() => {
+            if (scrollMusic + carousel.clientWidth >= carousel.scrollWidth) {
+                scrollMusic = 0;
+            } else {
+                scrollMusic += scrollStep;
+            }
+
+            carousel.scrollTo({
+                left: scrollMusic,
+                behavior: "smooth",
+            });
+        }, scrollDelay);
+    }
 </script>

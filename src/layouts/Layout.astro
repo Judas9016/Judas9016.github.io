@@ -11,10 +11,10 @@ import { ClientRouter } from "astro:transitions";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/" />
+        <link rel="icon" type="image/svg+xml" href="/public/favicon1.jpg" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
         <ClientRouter />
+        <title>{title}</title>
     </head>
     <body>
         <Navbar />
@@ -38,4 +38,25 @@ import { ClientRouter } from "astro:transitions";
         }
     }
 </style>
-<script></script>
+<script>
+    let lastScroll = 0;
+    const header = document.querySelector("header");
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+        const cross = document.querySelector(".cross");
+
+        if (cross) {
+            cross.addEventListener("click", () => {
+                cross.classList.toggle("rotated");
+            });
+        }
+
+        if (toggle && navLinks) {
+            toggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        }
+    });
+</script>
